@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "credit_cards",
+  "info": {
+    "singularName": "credit-card",
+    "pluralName": "credit-cards",
+    "displayName": "Credit Card",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "VISA": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::visa-card.visa-card"
+    },
+    "master": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::master-card.master-card"
+    }
+  }
+}

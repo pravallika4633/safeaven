@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_bank_transcations",
+  "info": {
+    "displayName": "transcations"
+  },
+  "options": {},
+  "attributes": {
+    "transcations": {
+      "displayName": "transactionsdetails",
+      "type": "component",
+      "repeatable": false,
+      "component": "bank.transactionsdetails"
+    }
+  }
+}

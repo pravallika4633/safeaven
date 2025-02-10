@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "at_and_t_card",
+  "info": {
+    "singularName": "at-and-t",
+    "pluralName": "at-and-t-card",
+    "displayName": "AT&T"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "plan_name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "data": {
+      "type": "string"
+    },
+    "talk_text": {
+      "type": "string"
+    },
+    "hotspot": {
+      "type": "string"
+    },
+    "features": {
+      "type": "string"
+    }
+  }
+}

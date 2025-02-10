@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "student_loans",
+  "info": {
+    "singularName": "student-loan",
+    "pluralName": "student-loans",
+    "displayName": "StudentLoan"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "loan_name": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "amount_range": {
+      "type": "string"
+    },
+    "interest_rate": {
+      "type": "string"
+    },
+    "term": {
+      "type": "string"
+    },
+    "features": {
+      "type": "string"
+    }
+  }
+}

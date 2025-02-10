@@ -16,9 +16,11 @@
     "@strapi/plugin-users-permissions": "5.8.0",
     "@strapi/strapi": "5.8.0",
     "better-sqlite3": "11.3.0",
+    "passport-google-oauth2": "^0.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "safeaven": "file:",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {

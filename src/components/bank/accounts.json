@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_bank_accounts",
+  "info": {
+    "displayName": "accounts"
+  },
+  "options": {},
+  "attributes": {
+    "accountNumber": {
+      "type": "string"
+    },
+    "accountholder": {
+      "displayName": "accountHolder",
+      "type": "component",
+      "repeatable": true,
+      "component": "bank.account-holder"
+    }
+  }
+}

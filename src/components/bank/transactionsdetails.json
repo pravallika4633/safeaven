@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_bank_transactionsdetails",
+  "info": {
+    "displayName": "transactionsdetails"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Deposit",
+        "withdrawal",
+        "Transfer"
+      ]
+    },
+    "amount": {
+      "type": "biginteger"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_bank_account_holders",
+  "info": {
+    "displayName": "accountHolder",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "ssn": {
+      "type": "biginteger"
+    },
+    "address": {
+      "type": "component",
+      "repeatable": false,
+      "component": "bank.address"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "bank.contact"
+    },
+    "accountDetails": {
+      "displayName": "accountDetails",
+      "type": "component",
+      "repeatable": false,
+      "component": "accountdetails.account-details"
+    },
+    "transcations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "bank.transactionsdetails"
+    }
+  }
+}
