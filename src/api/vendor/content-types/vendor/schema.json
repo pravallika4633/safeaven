@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "products",
+  "collectionName": "vendors",
   "info": {
-    "singularName": "product",
-    "pluralName": "products",
-    "displayName": "products",
+    "singularName": "vendor",
+    "pluralName": "vendors",
+    "displayName": "vendor",
     "description": ""
   },
   "options": {
@@ -15,14 +15,7 @@
     "name": {
       "type": "string"
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "name"
-    },
-    "description": {
-      "type": "string"
-    },
-    "icon": {
+    "logo": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -33,11 +26,22 @@
         "audios"
       ]
     },
-    "variants": {
+    "description": {
+      "type": "string"
+    },
+    "contactinfo": {
+      "type": "json"
+    },
+    "supportedCountries": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::country.country"
+    },
+    "product_variants": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product-variant.product-variant",
-      "mappedBy": "product"
+      "mappedBy": "vendor"
     }
   }
 }

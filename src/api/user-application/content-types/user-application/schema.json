@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_applications",
+  "info": {
+    "singularName": "user-application",
+    "pluralName": "user-applications",
+    "displayName": "User Application",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "appliedDate": {
+      "type": "date"
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "progress_update": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user"
+    },
+    "specific_feilds": {
+      "type": "json"
+    },
+    "product_variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-variant.product-variant",
+      "mappedBy": "user_application"
+    }
+  }
+}

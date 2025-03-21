@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
-    "moduleResolution": "Node",
+   
     "lib": ["ES2020"],
     "target": "ES2019",
     "strict": false,
+    
+    "moduleResolution": "node",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,

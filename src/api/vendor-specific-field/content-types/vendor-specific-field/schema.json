@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vendor_specific_fields",
+  "info": {
+    "singularName": "vendor-specific-field",
+    "pluralName": "vendor-specific-fields",
+    "displayName": "Vendor Specific Fields",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fieldName": {
+      "type": "string"
+    },
+    "fieldValue": {
+      "type": "string"
+    },
+    "feildType": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "number",
+        "boolean"
+      ]
+    }
+  }
+}

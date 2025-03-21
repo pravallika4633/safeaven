@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "legal_documents",
+  "info": {
+    "singularName": "legal-document",
+    "pluralName": "legal-documents",
+    "displayName": "legalDocument",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "fileFormats": {
+      "type": "json"
+    }
+  }
+}

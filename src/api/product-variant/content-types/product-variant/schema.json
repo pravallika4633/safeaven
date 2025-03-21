@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_variants",
+  "info": {
+    "singularName": "product-variant",
+    "pluralName": "product-variants",
+    "displayName": "Product Variant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "variants"
+    },
+    "baseFields": {
+      "type": "json"
+    },
+    "eligibilityCriteria": {
+      "type": "json"
+    },
+    "vendor_specific_fields": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vendor-specific-field.vendor-specific-field"
+    },
+    "vendor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vendor.vendor",
+      "inversedBy": "product_variants"
+    },
+    "user_application": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-application.user-application",
+      "inversedBy": "product_variants"
+    }
+  }
+}

@@ -369,158 +369,27 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAtAndTAtAndT extends Struct.CollectionTypeSchema {
-  collectionName: 'at_and_t_card';
-  info: {
-    displayName: 'AT&T';
-    pluralName: 'at-and-t-card';
-    singularName: 'at-and-t';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    data: Schema.Attribute.String;
-    features: Schema.Attribute.String;
-    hotspot: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::at-and-t.at-and-t'
-    > &
-      Schema.Attribute.Private;
-    plan_name: Schema.Attribute.String;
-    price: Schema.Attribute.BigInteger;
-    publishedAt: Schema.Attribute.DateTime;
-    talk_text: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiBankingAccountListBankingAccountList
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'banking_account_lists';
+export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
+  collectionName: 'countries';
   info: {
     description: '';
-    displayName: 'Banking Account-list';
-    pluralName: 'banking-account-lists';
-    singularName: 'banking-account-list';
+    displayName: 'country';
+    pluralName: 'countries';
+    singularName: 'country';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    accounts: Schema.Attribute.Component<'bank.accounts', false>;
-    address: Schema.Attribute.Component<'bank.address', false>;
-    contact: Schema.Attribute.Component<'bank.contact', false>;
+    code: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    currency: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::banking-account-list.banking-account-list'
-    > &
-      Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    routingNumber: Schema.Attribute.BigInteger;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiBankingAccountBankingAccount
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'banking_accounts';
-  info: {
-    description: '';
-    displayName: 'Banking Account';
-    pluralName: 'banking-accounts';
-    singularName: 'banking-account';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    banking_account_lists: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::banking-account-list.banking-account-list'
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::banking-account.banking-account'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCreditCardCreditCard extends Struct.CollectionTypeSchema {
-  collectionName: 'credit_cards';
-  info: {
-    description: '';
-    displayName: 'Credit Card';
-    pluralName: 'credit-cards';
-    singularName: 'credit-card';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::credit-card.credit-card'
-    > &
-      Schema.Attribute.Private;
-    master: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::master-card.master-card'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    VISA: Schema.Attribute.Relation<'oneToMany', 'api::visa-card.visa-card'>;
-  };
-}
-
-export interface ApiHousingLocationHousingLocation
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'housing_locations';
-  info: {
-    displayName: 'Housing Location';
-    pluralName: 'housing-locations';
-    singularName: 'housing-location';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::housing-location.housing-location'
+      'api::country.country'
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
@@ -531,13 +400,14 @@ export interface ApiHousingLocationHousingLocation
   };
 }
 
-export interface ApiInsuranceInsurance extends Struct.CollectionTypeSchema {
-  collectionName: 'insurances';
+export interface ApiLegalDocumentLegalDocument
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'legal_documents';
   info: {
     description: '';
-    displayName: 'Insurance';
-    pluralName: 'insurances';
-    singularName: 'insurance';
+    displayName: 'legalDocument';
+    pluralName: 'legal-documents';
+    singularName: 'legal-document';
   };
   options: {
     draftAndPublish: true;
@@ -546,174 +416,28 @@ export interface ApiInsuranceInsurance extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    iso_insurance: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::iso-insurance.iso-insurance'
-    >;
-    kimber_health: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::kimber-health.kimber-health'
-    >;
+    description: Schema.Attribute.String;
+    fileFormats: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::insurance.insurance'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiIsoInsuranceIsoInsurance
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'iso_insurances';
-  info: {
-    displayName: 'ISO Insurance';
-    pluralName: 'iso-insurances';
-    singularName: 'iso-insurance';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    coverage: Schema.Attribute.BigInteger;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    deductible: Schema.Attribute.BigInteger;
-    features: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::iso-insurance.iso-insurance'
-    > &
-      Schema.Attribute.Private;
-    plan_name: Schema.Attribute.String;
-    price: Schema.Attribute.BigInteger;
-    publishedAt: Schema.Attribute.DateTime;
-    type: Schema.Attribute.Enumeration<
-      ['Travel Insurance', 'Health Insurance', 'Comprehensive Health Insurance']
-    >;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiKimberHealthKimberHealth
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'kimber_healths';
-  info: {
-    displayName: 'KIMBER Health';
-    pluralName: 'kimber-healths';
-    singularName: 'kimber-health';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    coverage: Schema.Attribute.BigInteger;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    deductible: Schema.Attribute.BigInteger;
-    features: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::kimber-health.kimber-health'
-    > &
-      Schema.Attribute.Private;
-    plan_name: Schema.Attribute.String;
-    price: Schema.Attribute.BigInteger;
-    publishedAt: Schema.Attribute.DateTime;
-    type: Schema.Attribute.Enumeration<
-      ['Health Insurance', 'Comprehensive Health Insurance', 'Travel Insurance']
-    >;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiLoanVehicleLoanVehicle extends Struct.CollectionTypeSchema {
-  collectionName: 'loan_vehicles';
-  info: {
-    displayName: 'Loan-Vehicle';
-    pluralName: 'loan-vehicles';
-    singularName: 'loan-vehicle';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    amount_range: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    features: Schema.Attribute.Text;
-    interest_rate: Schema.Attribute.String;
-    loan_name: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::loan-vehicle.loan-vehicle'
-    > &
-      Schema.Attribute.Private;
-    provider: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    term: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiMasterCardMasterCard extends Struct.CollectionTypeSchema {
-  collectionName: 'master_cards';
-  info: {
-    description: '';
-    displayName: 'master';
-    pluralName: 'master-cards';
-    singularName: 'master-card';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    annual_fee: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    features: Schema.Attribute.Text;
-    interest_rate: Schema.Attribute.String;
-    issuer: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::master-card.master-card'
+      'api::legal-document.legal-document'
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    rewards: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiOtherServiceOtherService
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'other_services';
+export interface ApiOtpOtp extends Struct.CollectionTypeSchema {
+  collectionName: 'otps';
   info: {
-    description: '';
-    displayName: 'Other Service';
-    pluralName: 'other-services';
-    singularName: 'other-service';
+    displayName: 'otp';
+    pluralName: 'otps';
+    singularName: 'otp';
   };
   options: {
     draftAndPublish: true;
@@ -722,24 +446,58 @@ export interface ApiOtherServiceOtherService
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    loan_vehicle: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::loan-vehicle.loan-vehicle'
-    >;
+    email: Schema.Attribute.String;
+    expiresAt: Schema.Attribute.DateTime;
+    isEmailVerified: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::other-service.other-service'
-    > &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::otp.otp'> &
       Schema.Attribute.Private;
+    otp: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    student_loan: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::student-loan.student-loan'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductVariantProductVariant
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_variants';
+  info: {
+    description: '';
+    displayName: 'Product Variant';
+    pluralName: 'product-variants';
+    singularName: 'product-variant';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    baseFields: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    eligibilityCriteria: Schema.Attribute.JSON;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-variant.product-variant'
+    > &
+      Schema.Attribute.Private;
+    product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user_application: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::user-application.user-application'
+    >;
+    vendor: Schema.Attribute.Relation<'manyToOne', 'api::vendor.vendor'>;
+    vendor_specific_fields: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vendor-specific-field.vendor-specific-field'
+    >;
   };
 }
 
@@ -747,7 +505,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
     description: '';
-    displayName: 'product';
+    displayName: 'products';
     pluralName: 'products';
     singularName: 'product';
   };
@@ -758,17 +516,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    credit_cards: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::credit-card.credit-card'
-    >;
-    housing_locations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::housing-location.housing-location'
-    >;
-    insurances: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::insurance.insurance'
+    description: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -776,87 +527,25 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'api::product.product'
     > &
       Schema.Attribute.Private;
-    other_services: Schema.Attribute.Relation<
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    variants: Schema.Attribute.Relation<
       'oneToMany',
-      'api::other-service.other-service'
+      'api::product-variant.product-variant'
     >;
-    publishedAt: Schema.Attribute.DateTime;
-    sim_card: Schema.Attribute.Relation<'oneToOne', 'api::sim-card.sim-card'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
   };
 }
 
-export interface ApiSimCardSimCard extends Struct.CollectionTypeSchema {
-  collectionName: 'sim_cards';
+export interface ApiSupportSupport extends Struct.CollectionTypeSchema {
+  collectionName: 'supports';
   info: {
-    description: '';
-    displayName: 'SIM Card';
-    pluralName: 'sim-cards';
-    singularName: 'sim-card';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    at_t: Schema.Attribute.Relation<'oneToMany', 'api::at-and-t.at-and-t'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::sim-card.sim-card'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    t_mobile: Schema.Attribute.Relation<'oneToMany', 'api::t-mobile.t-mobile'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiStudentLoanStudentLoan extends Struct.CollectionTypeSchema {
-  collectionName: 'student_loans';
-  info: {
-    displayName: 'StudentLoan';
-    pluralName: 'student-loans';
-    singularName: 'student-loan';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    amount_range: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    features: Schema.Attribute.String;
-    interest_rate: Schema.Attribute.String;
-    loan_name: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::student-loan.student-loan'
-    > &
-      Schema.Attribute.Private;
-    provider: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    term: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiTMobileTMobile extends Struct.CollectionTypeSchema {
-  collectionName: 't_mobiles';
-  info: {
-    displayName: 't-mobile';
-    pluralName: 't-mobiles';
-    singularName: 't-mobile';
+    displayName: 'support';
+    pluralName: 'supports';
+    singularName: 'support';
   };
   options: {
     draftAndPublish: true;
@@ -865,53 +554,135 @@ export interface ApiTMobileTMobile extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.String;
-    features: Schema.Attribute.Text;
-    hotspot: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::t-mobile.t-mobile'
-    > &
-      Schema.Attribute.Private;
-    plan_name: Schema.Attribute.String;
-    price: Schema.Attribute.Integer;
-    publishedAt: Schema.Attribute.DateTime;
-    talk_text: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiVisaCardVisaCard extends Struct.CollectionTypeSchema {
-  collectionName: 'visa_cards';
-  info: {
-    description: '';
-    displayName: 'visa';
-    pluralName: 'visa-cards';
-    singularName: 'visa-card';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    annual_fee: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    features: Schema.Attribute.Text;
-    interest_rate: Schema.Attribute.String;
-    issuer: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::visa-card.visa-card'
+      'api::support.support'
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    rewards: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUserApplicationUserApplication
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'user_applications';
+  info: {
+    description: '';
+    displayName: 'User Application';
+    pluralName: 'user-applications';
+    singularName: 'user-application';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    appliedDate: Schema.Attribute.Date;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    documents: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-application.user-application'
+    > &
+      Schema.Attribute.Private;
+    product_variants: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-variant.product-variant'
+    >;
+    progress_update: Schema.Attribute.Enumeration<
+      ['Pending', 'Approved', 'Rejected']
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    specific_feilds: Schema.Attribute.JSON;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+  };
+}
+
+export interface ApiVendorSpecificFieldVendorSpecificField
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'vendor_specific_fields';
+  info: {
+    description: '';
+    displayName: 'Vendor Specific Fields';
+    pluralName: 'vendor-specific-fields';
+    singularName: 'vendor-specific-field';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    feildType: Schema.Attribute.Enumeration<['text', 'number', 'boolean']>;
+    fieldName: Schema.Attribute.String;
+    fieldValue: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vendor-specific-field.vendor-specific-field'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiVendorVendor extends Struct.CollectionTypeSchema {
+  collectionName: 'vendors';
+  info: {
+    description: '';
+    displayName: 'vendor';
+    pluralName: 'vendors';
+    singularName: 'vendor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactinfo: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vendor.vendor'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    name: Schema.Attribute.String;
+    product_variants: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-variant.product-variant'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    supportedCountries: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::country.country'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1373,26 +1144,38 @@ export interface PluginUsersPermissionsUser
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    citizenship: Schema.Attribute.String;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    destination: Schema.Attribute.String;
+    displayPicture: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    dob: Schema.Attribute.Date;
     email: Schema.Attribute.Email &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    firstname: Schema.Attribute.String;
+    hasCompletedProfile: Schema.Attribute.Boolean;
+    isEmailVerified: Schema.Attribute.Boolean;
+    isMobileVerified: Schema.Attribute.Boolean;
+    lastname: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
+    mobile: Schema.Attribute.String;
+    nationality: Schema.Attribute.Relation<'oneToOne', 'api::country.country'>;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
@@ -1400,14 +1183,20 @@ export interface PluginUsersPermissionsUser
       }>;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    purpose: Schema.Attribute.String;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
     role: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    salutation: Schema.Attribute.Enumeration<['Mr', 'Ms', 'Mrs', 'Dr', 'Prof']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    user: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-application.user-application'
+    >;
     username: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
@@ -1427,22 +1216,15 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::at-and-t.at-and-t': ApiAtAndTAtAndT;
-      'api::banking-account-list.banking-account-list': ApiBankingAccountListBankingAccountList;
-      'api::banking-account.banking-account': ApiBankingAccountBankingAccount;
-      'api::credit-card.credit-card': ApiCreditCardCreditCard;
-      'api::housing-location.housing-location': ApiHousingLocationHousingLocation;
-      'api::insurance.insurance': ApiInsuranceInsurance;
-      'api::iso-insurance.iso-insurance': ApiIsoInsuranceIsoInsurance;
-      'api::kimber-health.kimber-health': ApiKimberHealthKimberHealth;
-      'api::loan-vehicle.loan-vehicle': ApiLoanVehicleLoanVehicle;
-      'api::master-card.master-card': ApiMasterCardMasterCard;
-      'api::other-service.other-service': ApiOtherServiceOtherService;
+      'api::country.country': ApiCountryCountry;
+      'api::legal-document.legal-document': ApiLegalDocumentLegalDocument;
+      'api::otp.otp': ApiOtpOtp;
+      'api::product-variant.product-variant': ApiProductVariantProductVariant;
       'api::product.product': ApiProductProduct;
-      'api::sim-card.sim-card': ApiSimCardSimCard;
-      'api::student-loan.student-loan': ApiStudentLoanStudentLoan;
-      'api::t-mobile.t-mobile': ApiTMobileTMobile;
-      'api::visa-card.visa-card': ApiVisaCardVisaCard;
+      'api::support.support': ApiSupportSupport;
+      'api::user-application.user-application': ApiUserApplicationUserApplication;
+      'api::vendor-specific-field.vendor-specific-field': ApiVendorSpecificFieldVendorSpecificField;
+      'api::vendor.vendor': ApiVendorVendor;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
